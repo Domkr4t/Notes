@@ -1,6 +1,8 @@
-﻿
-using AutoMapper;
+﻿using AutoMapper;
+using FluentValidation;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
+using Notes.Application.Common.Behaviors;
 using Notes.Application.Common.Mappings;
 using System.Reflection;
 
@@ -21,6 +23,11 @@ namespace Notes.Application
             {
                 return mapperConfig.CreateMapper();
             });
+
+            services.AddValidatorsFromAssemblies(new[] { Assembly.GetExecutingAssembly() });
+
+            services.AddTransient(typeof(IPipelineBehavior<,>),
+                typeof(ValidationBehavior<,>));
 
             return services;
         }
