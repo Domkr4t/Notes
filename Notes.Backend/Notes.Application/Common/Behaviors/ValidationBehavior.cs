@@ -28,7 +28,7 @@ namespace Notes.Application.Common.Behaviors
 
             if (failures.Count != 0)
             {
-                throw new ValidationException(failures);
+                throw new FluentValidation.ValidationException(failures);
             }
 
             return next();

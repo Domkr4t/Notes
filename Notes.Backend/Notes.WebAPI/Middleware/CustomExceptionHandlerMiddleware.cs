@@ -1,6 +1,4 @@
-﻿using Azure.Core.Serialization;
-using Notes.Application.Common.Exceptions;
-using System;
+﻿using Notes.Application.Common.Exceptions;
 using System.ComponentModel.DataAnnotations;
 using System.Net;
 using System.Text.Json;
