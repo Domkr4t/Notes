@@ -2,7 +2,7 @@
 using Notes.Application.Common.Mappings;
 using Notes.Application.Notes.Commands.CreateNote;
 
-namespace Notes.Application.Notes.Dtos
+namespace Notes.WebAPI.Dtos
 {
     public class CreateNoteDto : IMapWith<CreateNoteCommand>
     {

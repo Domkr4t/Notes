@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 using Notes.Application.Notes.Commands.CreateNote;
 using Notes.Application.Notes.Commands.DeleteNote;
 using Notes.Application.Notes.Commands.UpdateNote;
-using Notes.Application.Notes.Dtos;
 using Notes.Application.Notes.Queries.GetNoteDetails;
 using Notes.Application.Notes.Queries.GetNoteList;
+using Notes.WebAPI.Dtos;
 
 namespace Notes.WebAPI.Controllers
 {

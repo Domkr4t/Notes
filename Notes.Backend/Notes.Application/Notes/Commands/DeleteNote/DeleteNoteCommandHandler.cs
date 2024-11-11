@@ -6,20 +6,20 @@ using Notes.Domain;
 
 namespace Notes.Application.Notes.Commands.DeleteNote
 {
-    public class DeleteNoteHandler : IRequestHandler<DeleteNoteCommand>
+    public class DeleteNoteCommandHandler : IRequestHandler<DeleteNoteCommand>
     {
         private readonly INoteDbContext _noteDbContext;
 
-        public DeleteNoteHandler(INoteDbContext noteDbContext)
+        public DeleteNoteCommandHandler(INoteDbContext noteDbContext)
         {
             _noteDbContext = noteDbContext;
         }
 
         public async Task Handle(DeleteNoteCommand request, CancellationToken cancellationToken)
         {
-            var note = await _noteDbContext.Notes.FindAsync(new object[] { request.Id }, cancellationToken);
+            var note = await _noteDbContext.Notes.FindAsync([request.Id], cancellationToken);
 
-            if (note == null && note?.UserId != request.UserId)
+            if (note == null || note?.UserId != request.UserId)
             {
                 throw new NotFoundException(nameof(Note), request.Id);
             }

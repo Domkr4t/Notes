@@ -1,7 +1,4 @@
 ﻿using AutoMapper;
-using Notes.Application.Notes.Commands.CreateNote;
-using Notes.Application.Notes.Commands.UpdateNote;
-using Notes.Application.Notes.Dtos;
 using Notes.Application.Notes.Queries.GetNoteList;
 using Notes.Domain;
 using System.Reflection;
@@ -28,8 +25,6 @@ namespace Notes.Application.Common.Mappings
                 methodInfo?.Invoke(instance, new object[] { this });
             }
 
-            CreateMap<CreateNoteDto, CreateNoteCommand>();
-            CreateMap<UpdateNoteDto, UpdateNoteCommand>();
             CreateMap<Note, NoteLookupDto>();
         }
     }

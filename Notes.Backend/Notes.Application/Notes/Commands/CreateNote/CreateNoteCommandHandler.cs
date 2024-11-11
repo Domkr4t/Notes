@@ -4,11 +4,11 @@ using Notes.Domain;
 
 namespace Notes.Application.Notes.Commands.CreateNote
 {
-    public class CreateNoteHandler : IRequestHandler<CreateNoteCommand, Guid>
+    public class CreateNoteCommandHandler : IRequestHandler<CreateNoteCommand, Guid>
     {
         private readonly INoteDbContext _noteDbContext;
 
-        public CreateNoteHandler(INoteDbContext noteDbContext)
+        public CreateNoteCommandHandler(INoteDbContext noteDbContext)
         {
             _noteDbContext = noteDbContext;
         }

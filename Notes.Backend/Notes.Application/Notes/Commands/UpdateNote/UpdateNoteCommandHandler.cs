@@ -6,11 +6,11 @@ using Notes.Domain;
 
 namespace Notes.Application.Notes.Commands.UpdateNote
 {
-    public class UpdateNoteHandler : IRequestHandler<UpdateNoteCommand, Note>
+    public class UpdateNoteCommandHandler : IRequestHandler<UpdateNoteCommand, Note>
     {
         private readonly INoteDbContext _noteDbContext;
 
-        public UpdateNoteHandler(INoteDbContext noteDbContext)
+        public UpdateNoteCommandHandler(INoteDbContext noteDbContext)
         {
             _noteDbContext = noteDbContext;
         }
