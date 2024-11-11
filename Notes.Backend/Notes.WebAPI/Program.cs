@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Notes.Application;
 using Notes.Persistence;
 using SwaggerThemes;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -35,6 +36,13 @@ builder.Services.AddAuthentication(config =>
         options.Audience = "NotesWebAPI";
         options.RequireHttpsMetadata = false;
     });
+
+builder.Services.AddSwaggerGen(config =>
+{
+    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+    config.IncludeXmlComments(xmlPath);
+});
 
 var app = builder.Build();
 
